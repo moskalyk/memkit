@@ -1,0 +1,2 @@
+service Ceramic("ceramic"):
+  greeting(name: string) -> string

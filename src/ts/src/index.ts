@@ -11,19 +11,19 @@ if (typeof connectTo !== "string") {
 
 const main = async () => {
   console.log('booting...')
-  await Fluence.connect(`/ip4/127.0.0.1/tcp/7771/wss/p2p/12D3KooWBM3SdXWqGaawQDGQ6JprtwswEg3FWGvGhmgmMez1vRbR`);
-
+  await Fluence.connect('/ip4/127.0.0.1/tcp/9991/ws/p2p/12D3KooWBM3SdXWqGaawQDGQ6JprtwswEg3FWGvGhmgmMez1vRbR');
+  console.log((await Fluence.getClient()).getPeerId())
   setTimeout(async () => {
 
-  Fluence.onConnectionStateChange((state) => {
-      console.log(state)
-  });
+    Fluence.onConnectionStateChange((state) => {
+        console.log(state)
+    });
 
-//   const helloWorldResult = await helloWorld("Fluence");
-//   const helloWorldRemoteResult = await helloWorldRemote("Fluence");
-//   const getInfoResult = await getInfo();
-//   console.log(helloWorldResult);
-}, 5000)
+    //   const helloWorldResult = await helloWorld("Fluence");
+    //   const helloWorldRemoteResult = await helloWorldRemote("Fluence");
+    //   const getInfoResult = await getInfo();
+    //   console.log(helloWorldResult);
+    }, 5000)
 };
 
 main().catch((error) => {

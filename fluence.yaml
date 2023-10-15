@@ -4,15 +4,13 @@
 
 # Documentation: https://github.com/fluencelabs/cli/tree/main/docs/configs/fluence.md
 
-version: 2
-
-relays: kras
+version: 3
 
 aquaInputPath: src/aqua/main.aqua
 
 workers:
   defaultWorker:
-    services: []
+    services: [ ceramic ]
     spells: []
 
 deals:
@@ -20,4 +18,18 @@ deals:
     minWorkers: 1
     targetWorkers: 3
 
+hosts:
+  defaultWorker:
+    peerIds:
+      - 12D3KooWBM3SdXWqGaawQDGQ6JprtwswEg3FWGvGhmgmMez1vRbR
+
 aquaOutputTSPath: src/ts/src/aqua
+
+customFluenceEnv:
+  contractsEnv: local
+  relays:
+    - /ip4/127.0.0.1/tcp/9991/ws/p2p/12D3KooWBM3SdXWqGaawQDGQ6JprtwswEg3FWGvGhmgmMez1vRbR
+
+services:
+  ceramic:
+    get: src/services/ceramic
